@@ -4,11 +4,59 @@
     <meta charset="UTF-8">
     <title>Sự kiện phím</title>
 </head>
-<body>
-<img src="" alt="">
+<body onload="doReady()">
+<img id="imgObj"
+     src="https://cdn.imgbin.com/10/22/12/imgbin-nobita-nobi-doraemon-doraemon-doraemon-nobeta-illustration-EidYEzGBUbXParyddieRnN0bN.jpg"
+     alt="Nobita"
+     style="position:absolute;left:0px;top:0px;"
+     height="100"
+     width="80"
+/>
 
 <script>
-    
+    let delta = 10; /// Khoảng cách move mỗi lần bấm phím (pixel)
+    let imgObj = document.getElementById('imgObj');
+
+    function doReady() {
+        window.addEventListener('keydown', move);
+    }
+
+    function move(event) {
+        switch (event.keyCode) {
+            case 37:
+                moveLeft();
+                break;
+            case 39:
+                moveRight();
+                break;
+            case 38:
+                moveUp();
+                break;
+            case 40:
+                moveDown();
+                break;
+        }
+    }
+
+    function moveLeft() {
+        console.log('left');
+        imgObj.style.left = parseInt(imgObj.style.left) - delta+'px';
+    }
+
+    function moveRight() {
+        console.log('right');
+        imgObj.style.left = parseInt(imgObj.style.left) + delta+'px';
+    }
+    function moveUp() {
+        console.log('up');
+        imgObj.style.top = parseInt(imgObj.style.top) - delta+'px';
+    }
+    function moveDown() {
+        console.log('down');
+        imgObj.style.top = parseInt(imgObj.style.top) + delta+'px';
+    }
+
+
 </script>
 
 </body>
